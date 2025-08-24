@@ -1,0 +1,8 @@
+query GetEventPhases($eventId: ID!) {
+  event(id: $eventId) {
+    phases {
+      id
+      name
+    }
+  }
+}

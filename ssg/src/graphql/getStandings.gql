@@ -1,0 +1,23 @@
+query LeagueStandings {
+  league(slug: "rivals-2-championship-series-north-america") {
+    id
+    name
+    standings (query: {
+      page: 1,
+      perPage: 10
+    }) {
+      pageInfo {
+        totalPages
+        total
+      }
+      nodes {
+        id
+        placement
+        entrant {
+          id
+          name
+        }
+      }
+    }
+  }
+}
