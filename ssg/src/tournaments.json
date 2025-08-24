@@ -1,40 +1,23 @@
 [
   {
-    "start.gg-melee-singles-url": "https://www.start.gg/tournament/supernova-2025/event/melee-1v1-singles-free-to-enter-wr-merch-included",
-    "top8-start-time": "2025-08-10 2:30PM",
-    "schedule-url": "https://supernova.gg/schedule",
-    "stream-url": ""
-  },
-  {
-    "start.gg-melee-singles-url": "https://www.start.gg/tournament/collision-2025-8/event/melee-singles",
+    "start.gg-rivals2-singles-url": "https://www.start.gg/tournament/collision-2025-8/event/rivals-of-aether-ii-singles",
+		"phaseId": "",
     "top8-start-time": "",
     "schedule-url": "",
     "stream-url": ""
   },
   {
-    "start.gg-melee-singles-url": "https://www.start.gg/tournament/riptide-2025-4/event/melee-singles",
+    "start.gg-rivals2-singles-url": "https://www.start.gg/tournament/riptide-2025-4/event/rivals-2-singles",
+		"phaseId": "",
     "top8-start-time": "",
     "schedule-url": "",
     "stream-url": ""
   },
   {
-    "start.gg-melee-singles-url": "https://www.start.gg/tournament/qu-becup-2025/event/melee-singles",
+    "start.gg-rivals2-singles-url": "https://www.start.gg/tournament/port-priority-9-10/event/rivals-of-aether-ii-singles",
+		"phaseId": "",
     "top8-start-time": "",
     "schedule-url": "",
     "stream-url": ""
-  },
-  {
-    "start.gg-melee-singles-url": "https://www.start.gg/tournament/fast-fall-2025/event/melee-singles",
-    "top8-start-time": "",
-    "schedule-url": "",
-    "stream-url": "",
-    "player0": "Zain",
-    "player1": "Cody Schwab",
-    "player2": "Moky",
-    "player3": "Aklo",
-    "player4": "Nicki",
-    "player5": "Wizzrobe",
-    "player6": "Junebug",
-    "player7": "Magi"
   }
 ]

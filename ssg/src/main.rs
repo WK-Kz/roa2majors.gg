@@ -9,7 +9,7 @@ use ffmpeg_sidecar::event::{FfmpegEvent, LogLevel};
 use fs_extra::{copy_items, dir};
 use gql_client::{Client, ClientConfig};
 use icalendar::{Calendar, Class, Component, Event, EventLike};
-use itertools::Itertools;
+// use itertools::Itertools;
 use regex::Regex;
 use serde_json::{json, Value};
 use std::collections::{HashMap, HashSet};
@@ -52,13 +52,15 @@ async fn main() {
     let query_client = Client::new_with_config(query_config);
     let query_tournament_info = read_file("graphql/getTournamentInfo.gql");
     let query_tournament_entrants = read_file("graphql/getTournamentEntrants.gql");
-    let query_featured_players = read_file("graphql/getFeaturedPlayers.gql");
-    let json_featured_players: Value = serde_json::from_str(&read_file("topPlayers.json")).unwrap();
+    // let query_featured_players = read_file("graphql/getFeaturedPlayers.gql");
+    let query_phase_id = read_file("graphql/getPhase.gql");
+    let query_seeds = read_file("graphql/getSeeding.gql");
+    // let json_featured_players: Value = serde_json::from_str(&read_file("topPlayers.json")).unwrap();
     let template_header_html = read_file("html/header.html");
     let mut index_html: String = "".to_string();
     let template_card = read_file("html/templateCard.html");
     let index_footer_html = read_file("html/footer.html");
-    let mut calendar_ics = Calendar::new().name("upcoming melee majors").done();
+    let mut calendar_ics = Calendar::new().name("upcoming rivals 2 majors").done();
     let tournaments = read_file("tournaments.json");
     let json_tournaments: Value = serde_json::from_str(&tournaments).unwrap();
     let mut all_images: HashSet<String> = HashSet::new();
@@ -79,8 +81,10 @@ async fn main() {
                     query_client.clone(),
                     &query_tournament_info,
                     &query_tournament_entrants,
-                    &query_featured_players,
-                    &json_featured_players,
+										&query_phase_id,
+                    &query_seeds,
+                    // &query_featured_players,
+                    // &json_featured_players,
                     &mut all_images,
                 )
                 .await;
@@ -137,19 +141,23 @@ async fn main() {
     next_steps();
 }
 
+
+
 async fn scrape_data(
     tournament: &Value,
     query_client: Client,
     query_tournament_info: &str,
     query_tournament_entrants: &str,
-    query_featured_players: &str,
-    featured_players_json: &Value,
+		query_phase_id: &str,
+    query_seeds: &str,
+    // query_featured_players: &str,
+    // featured_players_json: &Value,
     all_images: &mut HashSet<String>,
 ) -> Value {
-    let melee_singles_url = tournament["start.gg-melee-singles-url"].as_str().unwrap();
+    let rivals_singles_url = tournament["start.gg-rivals2-singles-url"].as_str().unwrap();
     let event_slug = Regex::new(r"^(https?://)?(www\.)?start\.gg/")
         .unwrap()
-        .replace(melee_singles_url, "");
+        .replace(rivals_singles_url, "");
 
     let event_slug_parts: Vec<&str> = event_slug.split('/').collect();
     let tournament_slug = event_slug_parts.get(1).unwrap_or(&"").to_string();
@@ -184,26 +192,49 @@ async fn scrape_data(
     .await;
     log_success("start.gg", "scraped entrants");
 
-    let featured_players_vars = json!({
-        "slug_event": event_slug
-    });
-    let result_featured_players =
-        graphql_query(query_client, query_featured_players, featured_players_vars)
-            .await
-            .to_string();
-    log_success("start.gg", "scraped top 8 players");
+    // let featured_players_vars = json!({
+    //     "slug_event": event_slug
+    // });
 
-    let featured_players_top_eight = featured_players_json
-        .as_array()
-        .unwrap()
-        .iter()
-        .filter(|player| {
-            result_featured_players.contains(&(player.as_str().unwrap().to_owned() + "\""))
-        })
-        .take(8)
-        .map(|player| player.as_str().unwrap())
-        .pad_using(8, |_| "TBD")
-        .collect::<Vec<&str>>();
+    // This needs to be reinstantiated because of move
+    let event_id= json!({
+      "eventId": result_tournament_info["event"].get("id").unwrap().to_string(),
+    });
+    println!("Event ID: {}", event_id["eventId"]);
+    println!("Event Slug: {}", event_slug);
+
+    // Returns string
+    let result_phase_id = graphql_query(query_client.clone(), query_phase_id, event_id).await;
+    println!("Phase ID: {}", result_phase_id["event"]["phases"][0]["id"]); 
+
+    let phase_id = json!({ "phaseId": result_phase_id["event"]["phases"][0]["id"], "page": 0, "perPage": 499});
+
+
+    let top_seeds = graphql_query(query_client.clone(), query_seeds, phase_id).await;
+
+    let top_8_seeds = top_seeds["phase"]["seeds"]["nodes"].as_array().unwrap();
+    let featured_players_top_eight: Vec<&Value> = top_8_seeds.into_iter().take(8).collect();
+
+    log_success("start.gg","top 8 players collected");
+    // println!("Result: {}", featured_players_top_eight[0]["entrant"]["participants"][0]["gamerTag"].to_string());
+
+    // let result_featured_players =
+    //     graphql_query(query_client, query_featured_players, featured_players_vars)
+    //         .await
+    //         .to_string();
+    // log_success("start.gg", "scraped top 8 players");
+
+    // let featured_players_top_eight = featured_players_json
+    //     .as_array()
+    //     .unwrap()
+    //     .iter()
+    //     .filter(|player| {
+    //         result_featured_players.contains(&(player.as_str().unwrap().to_owned() + "\""))
+    //     })
+    //     .take(8)
+    //     .map(|player| player.as_str().unwrap())
+    //     .pad_using(8, |_| "TBD")
+    //     .collect::<Vec<&str>>();
 
     let entrant_count = result_entrant_count["event"]["numEntrants"].as_number();
     let entrant_count_string = match entrant_count {
@@ -267,7 +298,7 @@ async fn scrape_data(
         "city-and-state": check_override(tournament, city_and_state.to_string(), "city-and-state"),
         "maps-link": format!("https://www.google.com/maps/search/?api=1&query={}", encode(address)),
         "full-address": address,
-        "start.gg-url": melee_singles_url,
+        "start.gg-url": rivals_singles_url,
         "stream-url": stream_url,
         "schedule-url": schedule_url,
         "schedule-link-class": if schedule_url.is_empty() {" hidden"} else {""},

@@ -5,7 +5,7 @@ CALSCALE:GREGORIAN
 NAME:upcoming rivals 2 majors
 X-WR-CALNAME:upcoming rivals 2 majors
 BEGIN:VEVENT
-DTSTAMP:20250823T224437Z
+DTSTAMP:20250824T041735Z
 CLASS:PUBLIC
 DESCRIPTION:https://www.start.gg/tournament/collision-2025-8/event/rivals-o
  f-aether-ii-singles\n\nattendees: 135\n\nnotable entrants:\n\nSalt\nBbatts\
@@ -14,10 +14,10 @@ DTEND;VALUE=DATE:20250825
 DTSTART;VALUE=DATE:20250822
 LOCATION:355 Plaza Dr, Secaucus, NJ 07094, USA
 SUMMARY:Collision 2025
-UID:bb90be88-1251-43a4-97c8-f23a30285c99
+UID:480c762b-f176-4f95-b4aa-d46e9017e2c8
 END:VEVENT
 BEGIN:VEVENT
-DTSTAMP:20250823T224437Z
+DTSTAMP:20250824T041735Z
 CLASS:PUBLIC
 DESCRIPTION:https://www.start.gg/tournament/riptide-2025-4/event/rivals-2-s
  ingles\n\nattendees: 203\n\nnotable entrants:\n\nBen\nTBD\nTBD\nTBD\nTBD\nT
@@ -26,10 +26,10 @@ DTEND;VALUE=DATE:20250908
 DTSTART;VALUE=DATE:20250905
 LOCATION:7000 Kalahari Dr, Sandusky, OH 44870, USA
 SUMMARY:Riptide 2025
-UID:3ce74382-bdbc-4b3e-96e3-e155a29ba4a4
+UID:6ba9d1f9-09d7-49b0-8a6a-8f27ed2b48d3
 END:VEVENT
 BEGIN:VEVENT
-DTSTAMP:20250823T224437Z
+DTSTAMP:20250824T041735Z
 CLASS:PUBLIC
 DESCRIPTION:https://www.start.gg/tournament/port-priority-9-10/event/rivals
  -of-aether-ii-singles\n\nattendees: 26\n\nnotable entrants:\n\nTBD\nTBD\nTB
@@ -38,6 +38,6 @@ DTEND;VALUE=DATE:20251110
 DTSTART;VALUE=DATE:20251108
 LOCATION:18740 International Blvd, Seattle, WA 98188, USA
 SUMMARY:Port Priority 9
-UID:113b1519-16c0-45f1-ad4f-2da5806a0924
+UID:970f5a90-a893-4ca1-a89c-bf9077b09f85
 END:VEVENT
 END:VCALENDAR
