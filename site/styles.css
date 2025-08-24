@@ -387,6 +387,39 @@ hr {
   scale: 95%;
 }
 
+/* /1* taken from https://stackoverflow.com/questions/39006765/how-do-you-properly-wrap-google-calendar-inside-div-and-make-it-responsive *1/ */
+/* style { */
+/* CSS for responsive iFrame for calendar*/
+@media (max-width: 550px) {
+   .big-container {
+       display: none;
+   }
+}
+@media (min-width: 550px) {
+   .small-container {
+       display: none;
+   }
+}
+/* Responsive iFrame */
+.responsive-iframe-container {
+   position: relative;
+   padding-bottom: 60%;
+   margin-bottom: -11%;
+   height: 0;
+   overflow: hidden;
+}
+.responsive-iframe-container iframe,   
+.vresponsive-iframe-container object,  
+.vresponsive-iframe-container embed {
+   position: absolute;
+   top: 15%;
+   left: 20%;
+   width: 60%;
+   height: 60%;
+   filter:invert(100%)
+}
+/* } */
+
 footer {
   justify-content: center;
   align-items: center;

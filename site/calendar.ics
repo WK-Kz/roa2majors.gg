@@ -2,66 +2,42 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:ICALENDAR-RS
 CALSCALE:GREGORIAN
-NAME:upcoming melee majors
-X-WR-CALNAME:upcoming melee majors
+NAME:upcoming rivals 2 majors
+X-WR-CALNAME:upcoming rivals 2 majors
 BEGIN:VEVENT
-DTSTAMP:20250807T162043Z
+DTSTAMP:20250823T224437Z
 CLASS:PUBLIC
-DESCRIPTION:https://www.start.gg/tournament/supernova-2025/event/melee-1v1-
- singles-free-to-enter-wr-merch-included\n\nattendees: 2422\n\nnotable entra
- nts:\n\nCody Schwab\nZain\nJmook\nmoky\nLeffen\nHungrybox\nWizzrobe\nAklo\n
-DTEND;VALUE=DATE:20250811
-DTSTART;VALUE=DATE:20250807
-LOCATION:4320 Chantilly Shopping Center, Chantilly, VA 20151, USA
-SUMMARY:Supernova 2025
-UID:1c38ee2d-b9c4-4d3d-8319-77e729d8f90d
-END:VEVENT
-BEGIN:VEVENT
-DTSTAMP:20250807T162043Z
-CLASS:PUBLIC
-DESCRIPTION:https://www.start.gg/tournament/collision-2025-8/event/melee-si
- ngles\n\nattendees: 366\n\nnotable entrants:\n\nZain\nJmook\nmoky\nHungrybo
- x\nWizzrobe\nAklo\nKoDoRiN\nlloD\n
+DESCRIPTION:https://www.start.gg/tournament/collision-2025-8/event/rivals-o
+ f-aether-ii-singles\n\nattendees: 135\n\nnotable entrants:\n\nSalt\nBbatts\
+ nTBD\nTBD\nTBD\nTBD\nTBD\nTBD\n
 DTEND;VALUE=DATE:20250825
 DTSTART;VALUE=DATE:20250822
 LOCATION:355 Plaza Dr, Secaucus, NJ 07094, USA
 SUMMARY:Collision 2025
-UID:d36cd028-335b-4a03-82e3-a582c4f29d0d
+UID:bb90be88-1251-43a4-97c8-f23a30285c99
 END:VEVENT
 BEGIN:VEVENT
-DTSTAMP:20250807T162043Z
+DTSTAMP:20250823T224437Z
 CLASS:PUBLIC
-DESCRIPTION:https://www.start.gg/tournament/riptide-2025-4/event/melee-sing
- les\n\nattendees: 306\n\nnotable entrants:\n\nSkerzo\nMOF\nSirmeris\nDrephe
- n\nGrab\nFree Palestine\nDawson\nChango\n
+DESCRIPTION:https://www.start.gg/tournament/riptide-2025-4/event/rivals-2-s
+ ingles\n\nattendees: 203\n\nnotable entrants:\n\nBen\nTBD\nTBD\nTBD\nTBD\nT
+ BD\nTBD\nTBD\n
 DTEND;VALUE=DATE:20250908
 DTSTART;VALUE=DATE:20250905
 LOCATION:7000 Kalahari Dr, Sandusky, OH 44870, USA
 SUMMARY:Riptide 2025
-UID:1fa66af0-6239-420a-9006-561fc052021e
+UID:3ce74382-bdbc-4b3e-96e3-e155a29ba4a4
 END:VEVENT
 BEGIN:VEVENT
-DTSTAMP:20250807T162043Z
+DTSTAMP:20250823T224437Z
 CLASS:PUBLIC
-DESCRIPTION:https://www.start.gg/tournament/qu-becup-2025/event/melee-singl
- es\n\nattendees: 125\n\nnotable entrants:\n\nCody Schwab\nHungrybox\nSalt\n
- Zamu\nFaust\nMOF\nLunar Dusk\nKalvar\n
-DTEND;VALUE=DATE:20251005
-DTSTART;VALUE=DATE:20251004
-LOCATION:5000 R. Sherbrooke E, Montréal, QC H1V 1A1, Canada
-SUMMARY:Québecup 2025
-UID:fac2538e-0da2-41f1-bc6c-b86d0d906b32
-END:VEVENT
-BEGIN:VEVENT
-DTSTAMP:20250807T162043Z
-CLASS:PUBLIC
-DESCRIPTION:https://www.start.gg/tournament/fast-fall-2025/event/melee-sing
- les\n\nattendees: 43\n\nnotable entrants:\n\nZain\nCody Schwab\nMoky\nAklo\
- nNicki\nWizzrobe\nJunebug\nMagi\n
+DESCRIPTION:https://www.start.gg/tournament/port-priority-9-10/event/rivals
+ -of-aether-ii-singles\n\nattendees: 26\n\nnotable entrants:\n\nTBD\nTBD\nTB
+ D\nTBD\nTBD\nTBD\nTBD\nTBD\n
 DTEND;VALUE=DATE:20251110
 DTSTART;VALUE=DATE:20251108
-LOCATION:310 4th St, Niagara Falls, NY 14303, USA
-SUMMARY:FAST FALL$ 2025
-UID:e9eb1e58-c4dc-4321-a4c3-5d2f6aa64932
+LOCATION:18740 International Blvd, Seattle, WA 98188, USA
+SUMMARY:Port Priority 9
+UID:113b1519-16c0-45f1-ad4f-2da5806a0924
 END:VEVENT
 END:VCALENDAR
